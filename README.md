@@ -40,4 +40,5 @@ remove-item *ntds*
 ## License
 This program is licensed under the MIT license.
 
+## Keep connected
 For more insights and articles, visit my blog at [MyTechNote](https://www.mytechnote.ru).
