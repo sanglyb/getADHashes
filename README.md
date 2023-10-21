@@ -10,7 +10,7 @@ The method involves extracting password hashes of active users from the domain c
 
 ## Instructions for those who either don't want to or aren't allowed to use my app:
 
-### 1. Execute these commands on the domain controller in PowerShell. Ensure that DSInternals is placed in the desired directory:
+### Execute these commands on the domain controller in PowerShell. Ensure that DSInternals is placed in the desired directory:
 ```powershell
 $path="C:\New folder\"
 cd $path
@@ -19,13 +19,7 @@ $vss=Get-CimInstance -ClassName Win32_ShadowCopy -Property * | Select-Object Dev
 vssadmin create shadow /for=C:
 $vss=Get-CimInstance -ClassName Win32_ShadowCopy -Property * | Select-Object DeviceObject,ID
 $vss[0]
-```
-### 2. Execute the following command in CMD. Ensure you update the shadow copy number (e.g., HarddiskVolumeShadowCopy[317]) based on the number displayed on your screen:
-```cmd
-copy \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy317\Windows\NTDS "C:\new folder"
-```
-### 3. Switch back to PowerShell and continue with:
-```powershell
+Start-Process -FilePath cmd.exe -ArgumentList "/c copy ${$vss[0].DeviceObject}\Windows\NTDS `"C:\new folder`""
 vssadmin.exe delete shadows /shadow="$($vss[0].ID)" /quiet
 esentutl /r edb /d
 import-module -name .\dsinternals
