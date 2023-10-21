@@ -6,7 +6,7 @@ Compiled executable is available at [bin\release folder](https://github.com/sang
 
 In essence, this program provides an implementation and automation of the steps required to obtain these hashes:
 
-The method involves extracting password hashes of active users from the domain controller's ntds with the help of [DSInternals](https://github.com/MichaelGrafnetter/DSInternals) module.
+The method involves extracting password hashes of active users from the domain controller's NTDS with the help of [DSInternals](https://github.com/MichaelGrafnetter/DSInternals) module.
 
 ## Instructions for those who either don't want to or aren't allowed to use my app:
 
