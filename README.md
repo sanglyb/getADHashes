@@ -6,7 +6,7 @@ Compiled executable is available at [bin\release folder](https://github.com/sang
 
 In essence, this program provides an implementation and automation of the steps required to obtain these hashes:
 
-## Get AD paswword hashes manually:
+## Get AD password hashes manually:
 
 The method involves extracting password hashes of active users from the domain controller's NTDS with the help of [DSInternals](https://github.com/MichaelGrafnetter/DSInternals) module.
 
